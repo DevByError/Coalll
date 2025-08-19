@@ -200,7 +200,7 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
                     'will take place online instead of in the streets on Friday April 3rd, and ask everyone to '
                     'participate and share on social media. We call on the government to listen carefully to the '
                     'high school and university students, concerned grandfathers and grandmothers, strikers, '
-                    'animal protectors, scientists and all those other people who unite for the climate.',
+                    'animal protectors, scientists and all those other people who unite for the .',
                 icon: Icons.remove_red_eye,
                 color: const Color.fromARGB(255, 212, 17, 95),
                 borderRadius: borderRadius,
