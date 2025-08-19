@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "162379198424",
+    "project_id": "coal-project-e82be",
+    "storage_bucket": "coal-project-e82be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162379198424:android:5fe058be65b9e376318cad",
+        "android_client_info": {
+          "package_name": "com.example.coal_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhaKUiEhXYxmt4oW6HzV4kEkNR2eBbcmo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162379198424:android:84c56fc2daa1ca60318cad",
+        "android_client_info": {
+          "package_name": "com.example.coalll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhaKUiEhXYxmt4oW6HzV4kEkNR2eBbcmo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
