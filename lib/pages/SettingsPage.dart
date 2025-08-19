@@ -102,24 +102,25 @@ class SettingsPage extends StatelessWidget {
                     children: [
                       _buildAccountSettings(context),
                       SizedBox(height: screenHeight * 0.01),
-                      _buildSettingsItem(
+                      _buildExpandableSettingsItem(
                         context,
                         icon: Icons.security,
                         title: 'Privacy & Security',
-                        onTap: () => _showPrivacySecurity(context),
+                        content: _buildPrivacySecurityContent(context),
                       ),
-                      _buildSettingsItem(
+                      _buildExpandableSettingsItem(
                         context,
                         icon: Icons.help,
                         title: 'Help & Support',
-                        onTap: () => _showHelpSupport(context),
+                        content: _buildHelpSupportContent(context),
                       ),
-                      _buildSettingsItem(
+                      _buildExpandableSettingsItem(
                         context,
                         icon: Icons.info,
                         title: 'About App',
-                        onTap: () => _showAboutApp(context),
+                        content: _buildAboutAppContent(context),
                       ),
+                      SizedBox(height: screenHeight * 0.02),
                     ],
                   ),
                 ),
@@ -262,6 +263,158 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
+  Widget _buildExpandableSettingsItem(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required Widget content,
+  }) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Card(
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).size.height * 0.01,
+      ),
+      color: Colors.grey[900],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(screenWidth * 0.04),
+      ),
+      child: ExpansionTile(
+        leading: Icon(icon, color: Colors.green, size: screenWidth * 0.06),
+        title: Text(
+          title,
+          style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.04),
+        ),
+        children: [content],
+      ),
+    );
+  }
+
+  Widget _buildPrivacySecurityContent(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return Padding(
+      padding: EdgeInsets.all(screenWidth * 0.04),
+      child: Column(
+        children: [
+          _buildPrivacySecurityItem(
+            context,
+            title: 'Data Collection',
+            content:
+                'We collect minimal data required for app functionality. All data is encrypted and stored securely.',
+          ),
+          _buildPrivacySecurityItem(
+            context,
+            title: 'Permissions',
+            content:
+                'The app requires location permissions for forestry-related features. Camera access is needed for document scanning.',
+          ),
+          _buildPrivacySecurityItem(
+            context,
+            title: 'Security Measures',
+            content:
+                'Two-factor authentication is available for enhanced security. Regular security audits are performed.',
+          ),
+          _buildPrivacySecurityItem(
+            context,
+            title: 'Data Sharing',
+            content:
+                'Your data is only shared with authorized government agencies as required by law.',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHelpSupportContent(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Padding(
+      padding: EdgeInsets.all(screenWidth * 0.04),
+      child: Column(
+        children: [
+          _buildHelpSupportItem(
+            context,
+            icon: Icons.help_outline,
+            title: 'FAQs',
+            content: 'Visit our FAQ section for answers to common questions.',
+          ),
+          _buildHelpSupportItem(
+            context,
+            icon: Icons.email,
+            title: 'Contact Us',
+            content:
+                'Email: support@forestryapp.gov.my\nPhone: +60 3-1234 5678',
+          ),
+          _buildHelpSupportItem(
+            context,
+            icon: Icons.report_problem,
+            title: 'Report Issues',
+            content:
+                'Use the in-app reporting tool to submit any problems you encounter.',
+          ),
+          _buildHelpSupportItem(
+            context,
+            icon: Icons.feedback,
+            title: 'Feedback',
+            content: 'We welcome your suggestions for improving the app.',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAboutAppContent(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return Padding(
+      padding: EdgeInsets.all(screenWidth * 0.04),
+      child: Column(
+        children: [
+          // Replace with your custom image
+          Container(
+            child: Image.asset(
+              'assets/sss.png',
+              width: screenWidth * 0.4,
+              height: screenWidth * 0.4,
+              fit: BoxFit.contain,
+            ),
+          ),
+
+          SizedBox(height: screenHeight * 0.02),
+          Text(
+            'Forestry Department Permit App',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: screenWidth * 0.045,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: screenHeight * 0.03),
+          _buildAboutAppItem(context, 'Version', '1.2.3'),
+          _buildAboutAppItem(
+            context,
+            'Developed By',
+            'Peninsular Government\nof Malaysia',
+          ),
+          _buildAboutAppItem(context, 'Last Updated', 'August 2023'),
+          SizedBox(height: screenHeight * 0.03),
+          Text(
+            'This official app allows forestry permit holders to manage their permits and access government services.',
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: screenWidth * 0.035,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildInfoRow(
     BuildContext context,
     String label,
@@ -311,6 +464,110 @@ class SettingsPage extends StatelessWidget {
                 fieldName!,
               ),
             ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPrivacySecurityItem(
+    BuildContext context, {
+    required String title,
+    required String content,
+  }) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: screenWidth * 0.04),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: screenWidth * 0.04,
+            ),
+          ),
+          SizedBox(height: screenWidth * 0.01),
+          Text(
+            content,
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: screenWidth * 0.035,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHelpSupportItem(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String content,
+  }) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: screenWidth * 0.05),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: Colors.green, size: screenWidth * 0.06),
+          SizedBox(width: screenWidth * 0.03),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: screenWidth * 0.04,
+                  ),
+                ),
+                SizedBox(height: screenWidth * 0.01),
+                Text(
+                  content,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: screenWidth * 0.035,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAboutAppItem(BuildContext context, String label, String value) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: screenWidth * 0.02),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            '$label: ',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: screenWidth * 0.04,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: screenWidth * 0.04,
+            ),
+          ),
         ],
       ),
     );
@@ -451,407 +708,6 @@ class SettingsPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildSettingsItem(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return Container(
-      margin: EdgeInsets.only(bottom: screenHeight * 0.01),
-      decoration: BoxDecoration(
-        color: Colors.grey[900],
-        borderRadius: BorderRadius.circular(screenWidth * 0.03),
-      ),
-      child: ListTile(
-        leading: Icon(icon, color: Colors.green, size: screenWidth * 0.06),
-        title: Text(
-          title,
-          style: TextStyle(color: Colors.white, fontSize: screenWidth * 0.04),
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: Colors.grey,
-          size: screenWidth * 0.06,
-        ),
-        onTap: onTap,
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.04,
-          vertical: screenHeight * 0.01,
-        ),
-      ),
-    );
-  }
-
-  void _showPrivacySecurity(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.grey[900],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.05),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(screenWidth * 0.05),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Privacy & Security',
-                style: TextStyle(
-                  color: Colors.green,
-                  fontSize: screenWidth * 0.05,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                height: screenHeight * 0.4,
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildPrivacySecurityItem(
-                        context,
-                        title: 'Data Collection',
-                        content:
-                            'We collect minimal data required for app functionality. All data is encrypted and stored securely.',
-                      ),
-                      _buildPrivacySecurityItem(
-                        context,
-                        title: 'Permissions',
-                        content:
-                            'The app requires location permissions for forestry-related features. Camera access is needed for document scanning.',
-                      ),
-                      _buildPrivacySecurityItem(
-                        context,
-                        title: 'Security Measures',
-                        content:
-                            'Two-factor authentication is available for enhanced security. Regular security audits are performed.',
-                      ),
-                      _buildPrivacySecurityItem(
-                        context,
-                        title: 'Data Sharing',
-                        content:
-                            'Your data is only shared with authorized government agencies as required by law.',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Center(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.1,
-                      vertical: screenHeight * 0.015,
-                    ),
-                  ),
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(
-                    'Close',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: screenWidth * 0.04,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPrivacySecurityItem(
-    BuildContext context, {
-    required String title,
-    required String content,
-  }) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Padding(
-      padding: EdgeInsets.only(bottom: screenWidth * 0.04),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: screenWidth * 0.04,
-            ),
-          ),
-          SizedBox(height: screenWidth * 0.01),
-          Text(
-            content,
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: screenWidth * 0.035,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showHelpSupport(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.grey[900],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.05),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(screenWidth * 0.05),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Help & Support',
-                style: TextStyle(
-                  color: Colors.green,
-                  fontSize: screenWidth * 0.05,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                height: screenHeight * 0.4,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      _buildHelpSupportItem(
-                        context,
-                        icon: Icons.help_outline,
-                        title: 'FAQs',
-                        content:
-                            'Visit our FAQ section for answers to common questions.',
-                      ),
-                      _buildHelpSupportItem(
-                        context,
-                        icon: Icons.email,
-                        title: 'Contact Us',
-                        content:
-                            'Email: support@forestryapp.gov.my\nPhone: +60 3-1234 5678',
-                      ),
-                      _buildHelpSupportItem(
-                        context,
-                        icon: Icons.report_problem,
-                        title: 'Report Issues',
-                        content:
-                            'Use the in-app reporting tool to submit any problems you encounter.',
-                      ),
-                      _buildHelpSupportItem(
-                        context,
-                        icon: Icons.feedback,
-                        title: 'Feedback',
-                        content:
-                            'We welcome your suggestions for improving the app.',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Center(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.1,
-                      vertical: screenHeight * 0.015,
-                    ),
-                  ),
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(
-                    'Close',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: screenWidth * 0.04,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildHelpSupportItem(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required String content,
-  }) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Padding(
-      padding: EdgeInsets.only(bottom: screenWidth * 0.05),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: Colors.green, size: screenWidth * 0.06),
-          SizedBox(width: screenWidth * 0.03),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: screenWidth * 0.04,
-                  ),
-                ),
-                SizedBox(height: screenWidth * 0.01),
-                Text(
-                  content,
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: screenWidth * 0.035,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showAboutApp(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.grey[900],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.05),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(screenWidth * 0.05),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Replace FlutterLogo with your custom image
-              Image.asset(
-                'assets/sss.png',
-                width: screenWidth * 0.4, // Adjust size as needed
-                height: screenWidth * 0.4, // Adjust size as needed
-                fit: BoxFit.contain,
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Text(
-                'Forestry Department Permit App',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenWidth * 0.045,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: screenHeight * 0.03),
-              _buildAboutAppItem(context, 'Version', '1.2.3'),
-              _buildAboutAppItem(
-                context,
-                'Developed By',
-                'Peninsular Government\n'
-                    'of Malaysia',
-              ),
-              _buildAboutAppItem(context, 'Last Updated', 'August 2023'),
-              SizedBox(height: screenHeight * 0.03),
-              Text(
-                'This official app allows forestry permit holders to manage their permits and access government services.',
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: screenWidth * 0.035,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: screenHeight * 0.03),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth * 0.1,
-                    vertical: screenHeight * 0.015,
-                  ),
-                ),
-                onPressed: () => Navigator.pop(context),
-                child: Text(
-                  'Close',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: screenWidth * 0.04,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAboutAppItem(BuildContext context, String label, String value) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Padding(
-      padding: EdgeInsets.only(bottom: screenWidth * 0.02),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            '$label: ',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: screenWidth * 0.04,
-            ),
-          ),
-          Text(
-            value,
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: screenWidth * 0.04,
-            ),
-          ),
-        ],
       ),
     );
   }
