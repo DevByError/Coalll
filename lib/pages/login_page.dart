@@ -65,7 +65,15 @@ class _LoginPageState extends State<LoginPage> {
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
+                // Company Logo
+                Image.asset(
+                  'assets/sss.png',
+                  height: 80, // Adjust height as needed
+                  width: 80, // Adjust width as needed
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(height: 20),
                 const Text(
                   'Log in',
                   style: TextStyle(
@@ -74,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
                 Container(
                   padding: const EdgeInsets.all(25),
                   decoration: BoxDecoration(
