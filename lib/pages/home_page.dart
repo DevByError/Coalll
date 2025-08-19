@@ -138,23 +138,20 @@ class HomePage extends StatelessWidget {
   }
 
   Future<void> _performLogout(BuildContext context) async {
-    Navigator.of(context).pop();
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => const Center(child: CircularProgressIndicator()),
-    );
-
     try {
+      // Perform logout first
       await Provider.of<AuthService>(context, listen: false).signOut();
-      if (!context.mounted) return;
 
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const LoginPage()),
-        (route) => false,
-      );
+      // Then close the dialog and navigate to login page
+      if (context.mounted) {
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+          (route) => false,
+        );
+      }
     } catch (e) {
       if (context.mounted) {
+        // Only pop the dialog if there's an error (to show the error message)
         Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

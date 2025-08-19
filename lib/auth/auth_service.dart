@@ -78,6 +78,13 @@ class AuthService with ChangeNotifier {
         'isVerified': false,
         'fcmToken': '',
         'lastLogin': Timestamp.now(),
+        'licence': {
+          'type': '',
+          'issuingDepartment': '',
+          'expiryDate': '', // Default value
+          'duration': '',
+          'issuedBy': '',
+        },
       });
 
       _user = UserModel(
