@@ -64,7 +64,8 @@ class MarketplacePage extends StatelessWidget {
     final suppliers = [
       {
         'title': 'Premium Hardwood Charcoal',
-        'image': 'https://images.unsplash.com/photo-1602524811334-67d8d10a2f64',
+        'image':
+            'https://www.fogocharcoal.com/cdn/shop/files/FP35-Lump_2048x2048.jpg?v=1715198582',
         'onTap': () {
           Navigator.push(
             context,
@@ -76,15 +77,18 @@ class MarketplacePage extends StatelessWidget {
       },
       {
         'title': 'Sustainable Timber Logs',
-        'image': 'https://images.unsplash.com/photo-1606761568499-6d2451b23c1a',
+        'image':
+            'https://wasatchtimber.com/cdn/shop/files/Wasatch-Timber-Products-raw-logs-4-scaled_32e3807b-f44c-433e-ae7b-a2f97afa7cbf.jpg?v=1718079213&width=900',
       },
       {
         'title': 'Bamboo Charcoal',
-        'image': 'https://images.unsplash.com/photo-1587731653466-04029a91a5e1',
+        'image':
+            'https://www.chagrinvalleysoapandsalve.com/cdn/shop/articles/Stock-Bamboo-Charcoal-Skin-Care2.jpg?v=1668962594',
       },
       {
         'title': 'Wood Chips',
-        'image': 'https://images.unsplash.com/photo-1617196038532-5fcb35d861cb',
+        'image':
+            'https://madrivermulch.com/wp-content/uploads/2021/09/cedarmulch2aupdated.jpg',
       },
     ];
 
@@ -96,7 +100,8 @@ class MarketplacePage extends StatelessWidget {
     final buyers = [
       {
         'title': 'Compare Prices',
-        'image': 'https://via.placeholder.com/300x200?text=Compare',
+        'image':
+            'https://static.tildacdn.com/tild3964-3631-4665-b332-633338363734/Price_Comparison_Sof.png',
         'onTap': () {
           Navigator.push(
             context,
@@ -106,15 +111,18 @@ class MarketplacePage extends StatelessWidget {
       },
       {
         'title': 'Wholesale',
-        'image': 'https://via.placeholder.com/300x200?text=Wholesale',
+        'image':
+            'https://sellerengine.com/wp-content/uploads/2019/01/Wholesale.png',
       },
       {
         'title': 'Retail Sale',
-        'image': 'https://via.placeholder.com/300x200?text=Retail',
+        'image':
+            'https://retailminded.com/wp-content/uploads/2017/12/RM_ShoppingCartComputerScreen_2017-1.jpg',
       },
       {
         'title': 'Export & Import',
-        'image': 'https://via.placeholder.com/300x200?text=Export',
+        'image':
+            'https://media.licdn.com/dms/image/v2/D4D12AQGV7IIaseYJjg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1702463709082?e=2147483647&v=beta&t=dAPplGkGdaYMbThZ73KypU-o-1s7blw6Fn7pbzztnQU',
         'onTap': () {
           Navigator.push(
             context,
@@ -133,22 +141,26 @@ class MarketplacePage extends StatelessWidget {
       {
         'title': 'Chainsaw',
         'subtitle': '\$189',
-        'image': 'https://via.placeholder.com/300x200?text=Chainsaw',
+        'image':
+            'https://mobileimages.lowes.com/productimages/bd947349-46e9-45fd-8a12-2871e24f3e12/08271378.jpg',
       },
       {
         'title': 'Harness',
         'subtitle': '\$159',
-        'image': 'https://via.placeholder.com/300x200?text=Harness',
+        'image':
+            'https://beastandbuckle.com/cdn/shop/files/lumberjack-plaid-no-pull-harness-leash-bundle-4756202_720x.jpg?v=1754705073',
       },
       {
         'title': 'Calk Logger Boots',
         'subtitle': '\$699',
-        'image': 'https://via.placeholder.com/300x200?text=Boots',
+        'image':
+            'https://cdn11.bigcommerce.com/s-11cqjpjngs/images/stencil/1280x1280/products/68019/84118/new_hoffmant_boot__32696.1663284731.jpg?c=1',
       },
       {
         'title': 'Two-Man Crosscut Saw',
         'subtitle': '\$239',
-        'image': 'https://via.placeholder.com/300x200?text=Saw',
+        'image':
+            'https://woodworldtx.com/cdn/shop/products/New-Two-Man-v3-lg1_a67d9cff-3c28-4425-98e4-061112c6e351_720x540.jpg?v=1585415327',
       },
     ];
 
@@ -160,19 +172,22 @@ class MarketplacePage extends StatelessWidget {
     final services = [
       {
         'title': 'Government Sector',
-        'image': 'https://via.placeholder.com/300x200?text=Government',
+        'image':
+            'https://media4.allnumis.com/74/kuala-lumpur-parliament-house_74_92638710b0db93291L.jpg',
       },
       {
         'title': 'Logistics & Transportation',
-        'image': 'https://via.placeholder.com/300x200?text=Logistics',
+        'image':
+            'https://media.licdn.com/dms/image/v2/D4D12AQEgnzq1IO_zAA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1668335533645?e=2147483647&v=beta&t=fgCDjONzMYBmxqbGlMcjV2I1rCLumN2RYP28McjcsmY',
       },
       {
         'title': 'Maintenance',
-        'image': 'https://via.placeholder.com/300x200?text=Maintenance',
+        'image':
+            'https://t3.ftcdn.net/jpg/02/79/67/00/360_F_279670083_6Q2SmbCUEYU3ucziI2trGspNIApgzB2v.jpg',
       },
       {
         'title': 'Consultation',
-        'image': 'https://via.placeholder.com/300x200?text=Consultation',
+        'image': 'https://cdn-icons-png.freepik.com/512/7689/7689827.png',
       },
     ];
 
@@ -339,27 +354,27 @@ class ExportImportPage extends StatelessWidget {
       {
         'name': 'MAERSK',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/4/47/Maersk_Group_Logo.svg',
+            'https://companieslogo.com/img/orig/MAERSK-B.CO-cdb8c805.png?t=1720244492',
       },
       {
         'name': 'EVERGREEN',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/2/2d/Evergreen_Marine_Corporation_logo.svg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Evergreen_Roundel.svg/1024px-Evergreen_Roundel.svg.png',
       },
       {
         'name': 'MSC',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/5/57/Mediterranean_Shipping_Company_logo.svg',
+            'https://www.clipartmax.com/png/middle/297-2979411_msc-mediterranean-shipping-company-logo-png.png',
       },
       {
         'name': 'Hapag-Lloyd',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/0/0c/Hapag-Lloyd_logo.svg',
+            'https://i.pinimg.com/736x/e2/23/1a/e2231a086c84982b416f85b2421405b8.jpg',
       },
       {
         'name': 'WAN HAI',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/2/25/Wan_Hai_logo.svg',
+            'https://thedeckmedia.com/wp-content/uploads/2023/02/2615.TW-91418757.png',
       },
     ];
 
@@ -448,25 +463,25 @@ class premiumhardwoodcharcoalpage extends StatelessWidget {
         'name': 'A',
         'subtitle': 'RM 9/kg',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/4/47/Maersk_Group_Logo.svg',
+            'https://angusandoink.com/cdn/shop/files/big-k-restaurant-charcoal-briquettes.webp?crop=center&height=1000&v=1724170592&width=1000',
       },
       {
         'name': 'B',
         'subtitle': 'RM 7/kg',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/2/2d/Evergreen_Marine_Corporation_logo.svg',
+            'https://5.imimg.com/data5/SELLER/Default/2021/2/CJ/AZ/PT/34272671/coconut-shell-charcoal-briquette-500x500.jpg',
       },
       {
         'name': 'C',
         'subtitle': 'RM 6/kg',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/5/57/Mediterranean_Shipping_Company_logo.svg',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL_luMpeSNZA0CdHU8mebcqkB5Jitzc7Ubv7eq8TSwh4uJTdbs3R-xrz9s780xoPFxJ6s&usqp=CAU',
       },
       {
         'name': 'D',
         'subtitle': 'RM 4/kg',
         'logo':
-            'https://upload.wikimedia.org/wikipedia/commons/0/0c/Hapag-Lloyd_logo.svg',
+            'https://5.imimg.com/data5/SELLER/Default/2024/4/410710974/UF/YX/DB/9047234/grade-d-ramgarh-steam-coal.webp',
       },
     ];
 
